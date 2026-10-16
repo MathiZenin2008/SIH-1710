@@ -18,121 +18,16 @@ RailNav 360 also includes an administrative dashboard through which authorized r
 The proposed solution aims to reduce passenger confusion, save time, improve accessibility, reduce unnecessary crowd movement, and provide a better railway station experience.
 
 ## Proposed Solution / Architecture Diagram
-Architecture Components:
-User Interface Layer: Android mobile application, web application, and touchscreen digital kiosks.
-Location Detection Layer: QR-code scanning, manual location selection, and optional BLE beacon positioning.
-Map Management Layer: Interactive indoor maps containing platforms, corridors, entrances, exits, stairs, ramps, lifts, and facilities.
-Navigation Engine: Uses graph-based routing and Dijkstra's or A* algorithm to calculate shortest and accessibility-aware routes.
-Backend Services: Python FastAPI provides APIs for facility search, route calculation, location information, and live updates.
-Database Layer: PostgreSQL with PostGIS stores station maps, facility locations, accessibility information, and route restrictions.
-Voice Assistance Layer: Text-to-speech provides spoken directions and multilingual guidance.
-Administration Layer: An authorized railway staff dashboard allows facility updates, pathway closures, and map maintenance.
-
-Architecture Flow:
-Passengers / Railway Staff
-↓
-Mobile Application / Web Application / Digital Kiosk
-↓
-API Gateway and Backend Services
-↓
-Location Detection + Indoor Map Engine + Navigation Engine
-↓
-Accessibility Services + Voice Guidance + Real-Time Updates
-↓
-PostgreSQL/PostGIS Database
-↓
-Railway Staff Dashboard for Map and Facility Updates
-
-Working Process:
-The passenger scans a QR code or manually selects their current location.
-The passenger searches for a destination such as a platform, restroom, or ticket counter.
-The system identifies a suitable route using the station's indoor map.
-Step-by-step visual and voice directions guide the passenger.
-Accessible routing avoids stairs and prioritizes suitable ramps or working lifts when required.
-If a pathway is blocked or a facility becomes unavailable, authorized staff update its status and the system recalculates the route.
+RailNav 360 uses a modular architecture consisting of a passenger interface, location detection system, indoor map engine, navigation engine, backend services, database, voice assistance module, and railway staff dashboard. Passengers access the system through a mobile application, web application, or digital kiosk. The frontend communicates with a Python FastAPI backend, which processes facility searches, location requests, navigation instructions, and route updates. QR codes and optional Bluetooth Low Energy beacons help identify indoor locations. The indoor map engine represents platforms, corridors, entrances, stairs, ramps, lifts, and facilities as a connected navigation graph. Dijkstra's or A* algorithm calculates suitable routes based on distance and accessibility requirements. PostgreSQL with PostGIS stores station maps, facility locations, accessibility details, and pathway restrictions. A text-to-speech module provides spoken directions, while an administrative dashboard allows authorized railway staff to update facility information and report blocked pathways. When a route becomes unavailable, the navigation engine recalculates an alternative route. The architecture supports mobile devices and kiosks and can be expanded to additional railway stations using verified maps and authorized railway integrations. 
 
 ## Use Cases
-1.Facility Search: Locate ticket counters, restrooms, food courts, waiting rooms, drinking water facilities, and other station amenities.
-
-2.Platform Navigation: Guide passengers from the station entrance to their required platform.
-
-3.Accessible Navigation: Provide routes suitable for wheelchair users and passengers with mobility difficulties.
-
-4.Voice-Guided Navigation: Help visually impaired passengers navigate using spoken directions.
-
-5.Multilingual Support: Display and announce directions in supported Indian languages.
-
-6.Digital Kiosk Navigation: Enable passengers without smartphones to search for facilities and obtain directions.
-
-7.Real-Time Route Updates: Redirect passengers when corridors are blocked or facilities become temporarily unavailable.
-
-8.Railway Staff Management: Allow authorized staff to update station maps and facility information.
-
-9.Emergency Exit Guidance: Display verified exit locations and accessible evacuation routes based on authorized station information.
-
-10.Congestion Reduction: Help passengers find alternative routes and distribute pedestrian movement more efficiently.
+The RailNav 360 system supports multiple use cases to improve railway station navigation. Passengers can search for facilities such as ticket counters, restrooms, food courts, waiting rooms, and drinking water facilities. The system guides passengers from station entrances to their required platforms and helps them find exits and connecting facilities. Wheelchair users and passengers with mobility difficulties can receive accessible routes that prioritize suitable ramps and working lifts while avoiding stairs where necessary. Visually impaired passengers can use voice-guided navigation, while multilingual support helps passengers understand directions in their preferred supported language. Digital kiosks provide navigation assistance to passengers who do not have smartphones. The system can redirect passengers when pathways are blocked or facilities become temporarily unavailable. Authorized railway staff can update station maps and facility information through an administrative dashboard. The system can also display verified emergency exits and alternative routes to help improve passenger safety and reduce unnecessary congestion.
 
 ## Technology Stack
-Frontend:
-- Flutter for Android mobile application development.
-- React.js and TypeScript for web and digital kiosk interfaces.
-- HTML, CSS, and JavaScript for responsive user interfaces.
-
-Backend:
-- Python 3 for application logic.
-- FastAPI for REST API development.
-- WebSockets for real-time updates.
-
-Database:
-- PostgreSQL for structured data storage.
-- PostGIS for spatial data and indoor map management.
-
-Mapping and Navigation:
-- Leaflet or MapLibre for interactive maps.
-- NetworkX for graph-based route calculation.
-- Dijkstra's or A* algorithm for shortest-path navigation.
-- Custom indoor floor plans for station-specific navigation.
-
-Positioning and Accessibility:
-- QR codes for identifying known indoor locations.
-- Bluetooth Low Energy (BLE) beacons for optional indoor positioning.
-- Text-to-speech for voice-guided navigation.
-- Screen-reader support, high-contrast mode, and adjustable text sizes.
-
-Development and Deployment:
-- Git and GitHub for version control.
-- Docker for optional application containerization.
-- Cloud hosting or a local server for backend services.
-- Firebase or WebSockets for optional live update delivery.
+The proposed technology stack includes Flutter for Android mobile application development and React.js with TypeScript for web applications and digital kiosks. Python 3 and FastAPI are used for backend development and REST API services, while WebSockets or Firebase can support real-time updates. PostgreSQL with PostGIS is used to store station layouts, facility locations, and spatial information. Leaflet or MapLibre provides interactive map visualization, and NetworkX supports graph-based route calculation using Dijkstra's or A* algorithm. QR-code scanning libraries help identify known indoor locations, while optional Bluetooth Low Energy beacons can support indoor positioning. Text-to-speech technology provides voice-guided directions, and screen-reader support, adjustable text sizes, and high-contrast interfaces improve accessibility. Git and GitHub support version control, while Docker and cloud or local server hosting can be used for deployment.
 
 ## Dependencies
-Software Dependencies:
-1. Python 3.x
-2. Flutter SDK
-3. Node.js and npm
-4. React.js and TypeScript
-5. FastAPI and Uvicorn
-6. PostgreSQL and PostGIS
-7. NetworkX
-8. Leaflet or MapLibre
-9. QR-code generation and scanning libraries
-10. WebSockets or Firebase
-11. Text-to-speech engine
-12. Git and GitHub
-13. Docker for optional containerization
-
-Hardware Dependencies:
-1. Laptop or server for backend hosting.
-2. Android smartphone for mobile application testing.
-3. Touchscreen display or computer for the digital kiosk prototype.
-4. Printed QR-code labels for indoor location identification.
-5. Optional BLE beacons for indoor positioning trials.
-6. Internet or local network connectivity.
-
-Data Dependencies:
-1. Railway station floor plans and indoor layouts.
-2. Verified locations of platforms, ticket counters, restrooms, lifts, stairs, ramps, and exits.
-3. Facility accessibility information.
+The project requires Python 3.x, Flutter SDK, Node.js, npm, React.js, TypeScript, FastAPI, Uvicorn, PostgreSQL, PostGIS, NetworkX, Leaflet or MapLibre, QR-code generation and scanning libraries, and a text-to-speech engine. WebSockets or Firebase may be used for real-time updates, while Git, GitHub, and Docker support development and deployment. The hardware requirements include a laptop or server for backend hosting, an Android smartphone for application testing, and a touchscreen display or computer for the digital kiosk prototype. Printed QR-code labels are required for identifying indoor locations, while BLE beacons are optional for continuous positioning trials. The project also depends on accurate railway station floor plans, verified facility locations, accessible pathway information, and updated details about temporary closures. Internet or local network connectivity is required for server communication and live updates. Real-world deployment and integration with railway services require authorized access to relevant station data and systems. The expected outcome is a functional prototype demonstrating indoor facility search, QR-based location identification, route calculation, voice guidance, accessible navigation, and simulated real-time route updates.
 4. Pathway connectivity and restrictions.
 5. Updated information about temporary closures and facility availability.
 6. Authorized railway data and integration access for real-world deployment.
