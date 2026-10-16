@@ -28,7 +28,5 @@ The proposed technology stack includes Flutter for Android mobile application de
 
 ## Dependencies
 The project requires Python 3.x, Flutter SDK, Node.js, npm, React.js, TypeScript, FastAPI, Uvicorn, PostgreSQL, PostGIS, NetworkX, Leaflet or MapLibre, QR-code generation and scanning libraries, and a text-to-speech engine. WebSockets or Firebase may be used for real-time updates, while Git, GitHub, and Docker support development and deployment. The hardware requirements include a laptop or server for backend hosting, an Android smartphone for application testing, and a touchscreen display or computer for the digital kiosk prototype. Printed QR-code labels are required for identifying indoor locations, while BLE beacons are optional for continuous positioning trials. The project also depends on accurate railway station floor plans, verified facility locations, accessible pathway information, and updated details about temporary closures. Internet or local network connectivity is required for server communication and live updates. Real-world deployment and integration with railway services require authorized access to relevant station data and systems. The expected outcome is a functional prototype demonstrating indoor facility search, QR-based location identification, route calculation, voice guidance, accessible navigation, and simulated real-time route updates.
-4. Pathway connectivity and restrictions.
-5. Updated information about temporary closures and facility availability.
-6. Authorized railway data and integration access for real-world deployment.
+
 
