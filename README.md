@@ -53,14 +53,23 @@ If a pathway is blocked or a facility becomes unavailable, authorized staff upda
 
 ## Use Cases
 1.Facility Search: Locate ticket counters, restrooms, food courts, waiting rooms, drinking water facilities, and other station amenities.
+
 2.Platform Navigation: Guide passengers from the station entrance to their required platform.
+
 3.Accessible Navigation: Provide routes suitable for wheelchair users and passengers with mobility difficulties.
+
 4.Voice-Guided Navigation: Help visually impaired passengers navigate using spoken directions.
+
 5.Multilingual Support: Display and announce directions in supported Indian languages.
+
 6.Digital Kiosk Navigation: Enable passengers without smartphones to search for facilities and obtain directions.
+
 7.Real-Time Route Updates: Redirect passengers when corridors are blocked or facilities become temporarily unavailable.
+
 8.Railway Staff Management: Allow authorized staff to update station maps and facility information.
+
 9.Emergency Exit Guidance: Display verified exit locations and accessible evacuation routes based on authorized station information.
+
 10.Congestion Reduction: Help passengers find alternative routes and distribute pedestrian movement more efficiently.
 
 ## Technology Stack
